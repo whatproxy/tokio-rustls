@@ -12,8 +12,8 @@ edition = "2018"
 rust-version = "1.60"
 
 [dependencies]
-tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
-rustls = { git = "https://github.com/wasix-org/rustls.git", branch = "v0.21.5", default-features = false }
+tokio = { version = "=1.24.2", git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
+rustls = { version = "0.21.8", git = "https://github.com/wasix-org/rustls.git", branch = "v0.21.8", default-features = false }
 
 [features]
 default = ["logging", "tls12"]
@@ -25,9 +25,14 @@ tls12 = ["rustls/tls12"]
 
 [dev-dependencies]
 argh = "0.1"
-tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = ["full"] }
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = [
+    "full",
+] }
 futures-util = "0.3.1"
 lazy_static = "1"
-webpki-roots = "0.23.1"
+webpki-roots = "0.25.2"
 rustls-pemfile = "1"
-webpki = { package = "rustls-webpki", version = "0.100.0", features = ["alloc", "std"] }
+webpki = { package = "rustls-webpki", version = "0.101.7", features = [
+    "alloc",
+    "std",
+] }
